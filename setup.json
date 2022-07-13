@@ -1,0 +1,26 @@
+{
+    "name": "aiida-dummy",
+    "author": "Evgeny Blokhin",
+    "author_email": "eb@tilde.pro",
+    "description": "AiiDA plugin for Dummy code",
+    "url": "https://github.com/tilde-lab/aiida-dummy",
+    "license": "MIT",
+    "entry_points": {
+        "aiida.calculations": [
+            "aiida_dummy = aiida_dummy:DummyCalc"
+        ],
+        "aiida.parsers": [
+            "aiida_dummy = aiida_dummy:DummyParser"
+        ],
+        "aiida.workflows": [
+            "aiida_dummy = aiida_dummy:DummyWorkChain"
+        ]
+    },
+    "include_package_data": true,
+    "setup_requires": ["reentry"],
+    "reentry_register": true,
+    "install_requires": [
+        "aiida-core>=1.6.8,<2.0.0"
+    ],
+    "python_requires": ">=3.5"
+}
