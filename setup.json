@@ -20,7 +20,7 @@
     "setup_requires": ["reentry"],
     "reentry_register": true,
     "install_requires": [
-        "aiida-core>=1.6.8,<2.0.0"
+        "aiida-core>=1.6.8"
     ],
     "python_requires": ">=3.5"
 }
