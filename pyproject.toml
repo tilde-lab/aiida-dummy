@@ -1,0 +1,47 @@
+[build-system]
+# build the package with [flit](https://flit.readthedocs.io)
+requires = ["flit_core >=3.4,<4", "reentry"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "aiida-dummy"
+dynamic = ["version"]  # read from aiida_dummy/__init__.py
+description = """AiiDA plugin for Dummy code"""
+authors = [{name = "Evgeny Blokhin", email = "eb@tilde.pro"}]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: AiiDA",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering",
+]
+keywords = ["aiida", "plugin"]
+requires-python = ">=3.5"
+dependencies = [
+    "aiida-core >= 1.6.8",
+]
+
+[project.urls]
+Source = "https://github.com/tilde-lab/aiida-dummy"
+
+[project.entry-points."aiida.calculations"]
+"aiida_dummy" = "aiida_dummy:DummyCalc"
+
+[project.entry-points."aiida.parsers"]
+"aiida_dummy" = "aiida_dummy:DummyParser"
+
+[project.entry-points."aiida.workflows"]
+"aiida_dummy" = "aiida_dummy:DummyWorkChain"
+
+[tool.flit.module]
+name = "aiida_dummy"
