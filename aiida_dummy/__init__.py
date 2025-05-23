@@ -1,4 +1,4 @@
-
+import random
 from aiida.orm import Int, Code
 from aiida.engine import ExitCode, CalcJob, WorkChain
 from aiida.parsers import Parser
@@ -36,7 +36,7 @@ class DummyWorkChain(WorkChain):
             assert self.ctx[key].is_finished_ok
 
     def finalize(self):
-
+        self.outputs.foobar = random.randint(1, 100)
         self.report('DummyWorkChain finished...')
 
 
