@@ -53,7 +53,7 @@ class DummyParser(Parser):
 
         try:
             folder = self.retrieved
-        except NotExistent:
+        except exceptions.NotExistent:
             return self.exit_codes.ERROR_NO_RETRIEVED_FOLDER
 
         self.logger.warning('Parsing dummy output %s', str(kwargs))
