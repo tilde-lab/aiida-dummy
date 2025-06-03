@@ -36,7 +36,8 @@ class DummyWorkChain(WorkChain):
             assert self.ctx[key].is_finished_ok
 
     def finalize(self):
-        self.outputs.foobar = random.randint(1, 100)
+        self.ctx.foobar = Int(random.randint(1, 100))
+        self.out("foobar", self.ctx.foobar)
         self.report('DummyWorkChain finished...')
 
 
