@@ -36,7 +36,8 @@ class DummyWorkChain(WorkChain):
             assert self.ctx[key].is_finished_ok
 
     def finalize(self):
-        self.outputs.foobar = random.randint(1, 100)
+        self.ctx.foobar = Int(random.randint(1, 100))
+        self.out("foobar", self.ctx.foobar)
         self.report('DummyWorkChain finished...')
 
 
@@ -52,7 +53,7 @@ class DummyParser(Parser):
 
         try:
             folder = self.retrieved
-        except NotExistent:
+        except exceptions.NotExistent:
             return self.exit_codes.ERROR_NO_RETRIEVED_FOLDER
 
         self.logger.warning('Parsing dummy output %s', str(kwargs))
